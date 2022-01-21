@@ -43,6 +43,10 @@
         //Window start screen
         var showStartScreen = true;
 
+        //Player
+        var player1Score = 0;
+        var player2Score =0;
+
         /*****************************START STATE************************************/
         //start state
         window.onload = function () {
@@ -56,8 +60,14 @@
         }
 
         function addStartText(){
-            canvasContext.fillStyle = 'white';
-            canvasContext.fillText("START GAME", canvas.width / 2 - 50, 300); // center the text 
+            canvasContext.font = "30px Georgia";
+            var gradient = canvasContext.createLinearGradient(0, 0, canvas.width, 0);
+                gradient.addColorStop("0"," magenta");
+                gradient.addColorStop("0.5", "yellow");
+                gradient.addColorStop("1.0", "red");
+            canvasContext.fillStyle = gradient;
+            
+            canvasContext.fillText("START GAME", canvas.width / 2 - 90, 300); // center the text 
         }
         /*****************************SERVE STATE************************************/
         //serve state
@@ -67,6 +77,8 @@
 
         function handleMouseClick(evt){
             if (showStartScreen){
+                player1Score = 0;
+                player2Score =0;
                 showStartScreen = false;
             }
         }
