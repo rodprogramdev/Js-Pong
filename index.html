@@ -103,10 +103,11 @@
         
         function drawEverything(){
             colorRect(0,0, canvas.width, canvas.height, 'green');
-            addStartText();
+           
             
             if(showStartScreen){
-              
+                addStartText();
+                showStartScreen = false;
                 return;
             }
            
