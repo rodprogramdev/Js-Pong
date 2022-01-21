@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PONG</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: black;
+            
+        }
+
+        #gameCanvas{
+
+            border: 5px 5px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" height="800" width="600">
+
+    </canvas>
+    <script>
+        /*****************************Variables************************************/
+        var canvas;
+        var canvasContext;
+
+        /*****************************START STATE************************************/
+        //start state
+        window.onload = function () {
+            canvas = document.getElementById('gameCanvas');
+            canvasContext = canvas.getContext('2d')
+        }
+        /*****************************SERVE STATE************************************/
+        //serve state
+        
+        /*****************************GAME STATE************************************/
+        //game state
+
+        /*****************************WIN STATE************************************/
+        //win state
+
+    </script>
+</body>
+</html>
