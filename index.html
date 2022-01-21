@@ -18,13 +18,13 @@
         }
 
         #gameCanvas{
-
+            position: absolute;
             border: 5px 5px solid #fff;
         }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas" height="800" width="600">
+    <canvas id="gameCanvas" height="600" width="800">
 
     </canvas>
     <script>
@@ -32,17 +32,40 @@
         var canvas;
         var canvasContext;
 
+        //BALL size variables
+
+        var ballX = 50;
+        var ballY = 50;
+
         /*****************************START STATE************************************/
         //start state
         window.onload = function () {
             canvas = document.getElementById('gameCanvas');
             canvasContext = canvas.getContext('2d')
+
+            var framesPerSecond = 30;
+            setInterval(function (){
+                drawEverything();
+                }, 1000, framesPerSecond);
         }
         /*****************************SERVE STATE************************************/
         //serve state
         
         /*****************************GAME STATE************************************/
         //game state
+
+        function ballReset(){
+            
+        }
+        
+        function drawEverything(){
+            colorRect(0,0, canvas.width, canvas.height, 'green');
+        }
+
+        function colorRect(leftX, topY, width, height, drawColor){
+            canvasContext.fillStyle = drawColor;
+            canvasContext.fillRect(leftX, topY, width, height);
+        }
 
         /*****************************WIN STATE************************************/
         //win state
