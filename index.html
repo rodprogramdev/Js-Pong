@@ -22,7 +22,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border: 5px 5px solid #fff;
+            outline: 3px solid #fff;
         }
     </style>
 </head>
@@ -40,6 +40,9 @@
         var ballX = 50;
         var ballY = 50;
 
+        //Window start screen
+        var showStartScreen = true;
+
         /*****************************START STATE************************************/
         //start state
         window.onload = function () {
@@ -51,18 +54,39 @@
                 drawEverything();
                 }, 1000, framesPerSecond);
         }
+
+        function addStartText(){
+            canvasContext.fillStyle = 'white';
+            canvasContext.fillText("START GAME", canvas.width / 2 - 50, 300); // center the text 
+        }
         /*****************************SERVE STATE************************************/
         //serve state
         
         /*****************************GAME STATE************************************/
         //game state
 
-        function ballReset(){
-            
+        function handleMouseClick(evt){
+            if (showStartScreen){
+                showStartScreen = false;
+            }
         }
+
+        function ballReset(){
+            showStartScreen = true;
+        }
+
+        function moveEverything(){
+            if (showStartScreen){
+                return;
+            }
+        }
+        
         
         function drawEverything(){
             colorRect(0,0, canvas.width, canvas.height, 'green');
+            addStartText();
+            
+           
         }
 
         function colorRect(leftX, topY, width, height, drawColor){
