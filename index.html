@@ -56,7 +56,11 @@
             var framesPerSecond = 30;
             setInterval(function (){
                 drawEverything();
+
                 }, 1000, framesPerSecond);
+
+                canvas.addEventListener('mousedown', handleMouseClick);
+                
         }
 
         function addStartText(){
@@ -84,7 +88,10 @@
         }
 
         function ballReset(){
-            showStartScreen = true;
+            if(player1Score >= WINNING_SCORE || player2Score >= WINNING_SCORE){
+                showStartScreen = true;
+            }
+            
         }
 
         function moveEverything(){
@@ -98,6 +105,10 @@
             colorRect(0,0, canvas.width, canvas.height, 'green');
             addStartText();
             
+            if(showStartScreen){
+              
+                return;
+            }
            
         }
 
