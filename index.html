@@ -44,6 +44,7 @@
         var ballSpeedY =4;
 
         var playerPaddle = 250;
+        var computerPaddle = 250;
 
         
         const PADDLE_WIDTH = 70;
@@ -137,7 +138,19 @@
                 return;
             }
 
-            colorRect(20,playerPaddle, PADDLE_HEIGHT,PADDLE_WIDTH,'white');
+            // var gradient = canvasContext.createLinearGradient(0, 0, canvas.width, 0);
+            //     gradient.addColorStop("0"," magenta");
+            //     gradient.addColorStop("0.5", "yellow");
+            //     gradient.addColorStop("1.0", "red");
+            // canvasContext.fillStyle = gradient;
+            
+            var gradient = canvasContext.createLinearGradient(0, 0, 200, 0);
+                gradient.addColorStop("0", "red");
+                gradient.addColorStop("0.5", "red");
+                gradient.addColorStop("1","blue");
+                canvasContext.fillStyle = gradient;
+            colorRect(20,playerPaddle, PADDLE_HEIGHT,PADDLE_WIDTH);
+            colorRect(780,computerPaddle, PADDLE_HEIGHT,PADDLE_WIDTH,'white');
 
             colorCircle(ballX, ballY, 10, 'white');
             drawNet();
