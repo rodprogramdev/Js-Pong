@@ -84,6 +84,11 @@
             
             canvasContext.fillText("START GAME", canvas.width / 2 - 150, 300); // center the text 
         }
+
+        function playerTextScore(){
+            canvasContext.font = "30px Georgia";
+            canvasContext.fillText("PLAYER SCORE:", 30 , 50);
+        }
         /*****************************SERVE STATE************************************/
         //serve state
         
@@ -114,6 +119,8 @@
                 colorRect(canvas.width/ 2 - 1, i, 2, 20, 'black');
             }
         }
+
+        
 
         function moveEverything(){
            if (showStartScreen){
@@ -151,7 +158,7 @@
                 canvasContext.fillStyle = gradient;
             colorRect(20,playerPaddle, PADDLE_HEIGHT,PADDLE_WIDTH);
             colorRect(780,computerPaddle, PADDLE_HEIGHT,PADDLE_WIDTH,'white');
-            canvasContext.fillText("PLAYER SCORE:", 30 , 50);
+            playerTextScore();
             colorCircle(ballX, ballY, 10, 'white');
             drawNet();
            
