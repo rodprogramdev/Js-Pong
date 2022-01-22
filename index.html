@@ -75,14 +75,14 @@
         }
 
         function addStartText(){
-            canvasContext.font = "30px Georgia";
+            canvasContext.font = "50px Georgia";
             var gradient = canvasContext.createLinearGradient(0, 0, canvas.width, 0);
                 gradient.addColorStop("0"," magenta");
                 gradient.addColorStop("0.5", "yellow");
                 gradient.addColorStop("1.0", "red");
             canvasContext.fillStyle = gradient;
             
-            canvasContext.fillText("START GAME", canvas.width / 2 - 90, 300); // center the text 
+            canvasContext.fillText("START GAME", canvas.width / 2 - 150, 300); // center the text 
         }
         /*****************************SERVE STATE************************************/
         //serve state
