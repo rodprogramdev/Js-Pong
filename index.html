@@ -43,6 +43,12 @@
         var ballSpeedX = 10;
         var ballSpeedY =4;
 
+        var playerPaddle = 250;
+
+        
+        const PADDLE_WIDTH = 70;
+        const PADDLE_HEIGHT = 7;
+
         //Window start screen
         var showStartScreen = true;
 
@@ -130,6 +136,8 @@
                 //showStartScreen = false;
                 return;
             }
+
+            colorRect(20,playerPaddle, PADDLE_HEIGHT,PADDLE_WIDTH,'white');
 
             colorCircle(ballX, ballY, 10, 'white');
             drawNet();
