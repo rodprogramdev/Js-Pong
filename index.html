@@ -47,15 +47,15 @@
         var computerPaddle = 250;
 
         
-        const PADDLE_WIDTH = 70;
-        const PADDLE_HEIGHT = 7;
+        const PADDLE_WIDTH = 80;
+        const PADDLE_HEIGHT = 10;
 
         //Window start screen
         var showStartScreen = true;
 
         //Player
-        var player1Score = 0;
-        var player2Score =0;
+        var playerScore = 0;
+        var computerScore =0;
 
         /*****************************START STATE************************************/
         //start state
@@ -127,7 +127,7 @@
                 computerPaddle += 6;
 
             }else if (computerPaddleYCenter > ballY + 30){
-                computerPaddle -=6;
+                computerPaddle -= 6;
             }
         }
 
@@ -142,8 +142,25 @@
 
             ballX = ballX + ballSpeedX;
             ballY = ballY + ballSpeedY;
-            
+            if (ballX < 0){
+                if (ballY > playerPaddle &&
+                    ballY < playerPaddle + PADDLE_HEIGHT){
+                        ballSpeedX = -ballSpeedX;
+                        var deltaY = ballY - (paddleY + PADDLE_HEIGHT /2);
+                        ballSpeedY = deltaY * 0.30;
+                    }else {
+                        playerScore++;
+                        ballReset();
+                    }
+            }
 
+            if(ballY < 0){
+                ballSpeedY = -ballSpeedY;
+            }
+
+            if (ballY > canvas.height - 60){
+                ballSpeedY = -ballSpeedY;
+            }
             // ballReset();
 
         }
