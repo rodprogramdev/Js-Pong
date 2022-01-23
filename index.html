@@ -68,7 +68,7 @@
                 moveEverything();
                 drawEverything();
                
-                }, 1000, framesPerSecond);
+                }, 1000 /framesPerSecond);
                
                 canvas.addEventListener('mousedown', handleMouseClick);
                 
@@ -120,6 +120,17 @@
             }
         }
 
+        function computerMovement(){
+            var computerPaddleYCenter = computerPaddle + (PADDLE_HEIGHT / 2);
+
+            if (computerPaddleYCenter < ballY - 30){
+                computerPaddle += 6;
+
+            }else if (computerPaddleYCenter > ballY + 30){
+                computerPaddle -=6;
+            }
+        }
+
         
 
         function moveEverything(){
@@ -127,8 +138,11 @@
                  return;
             }
 
+            computerMovement();
+
             ballX = ballX + ballSpeedX;
             ballY = ballY + ballSpeedY;
+            
 
             // ballReset();
 
