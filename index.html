@@ -46,9 +46,17 @@
         var playerPaddle = 250;
         var computerPaddle = 250;
 
+        var upPress = false;
+        var downPress = false;
+
         
         const PADDLE_WIDTH = 80;
         const PADDLE_HEIGHT = 10;
+
+        const PLAYER_UP = 87;
+        const PLAYER_DOWN = 83;
+
+
 
         //Window start screen
         var showStartScreen = true;
@@ -131,6 +139,28 @@
             }
         }
 
+       function paddleUP(evt){
+            if(evt.keycode == PLAYER_UP){
+                 upPress = true;
+
+            }
+           
+
+           
+        };
+
+        function paddleDown(evt){
+            if(evt.keycode == PLAYER_DOWN){
+              downPress = true;
+            }
+   
+        };
+
+        
+            
+        
+        
+
         
 
         function moveEverything(){
@@ -146,7 +176,7 @@
                 if (ballY > playerPaddle &&
                     ballY < playerPaddle + PADDLE_HEIGHT){
                         ballSpeedX = -ballSpeedX;
-                        var deltaY = ballY - (paddleY + PADDLE_HEIGHT /2);
+                        var deltaY = ballY - (playerPaddle + PADDLE_HEIGHT /2);
                         ballSpeedY = deltaY * 0.30;
                     }else {
                         playerScore++;
@@ -174,6 +204,14 @@
                 addStartText();
                 //showStartScreen = false;
                 return;
+            }
+
+            if (paddleUP && playerPaddle < canvas.height){
+                playerPaddle -= 5;
+            }else
+
+            if (paddleDown && playerPaddle > canvas.height){
+                playerPaddle += 5;
             }
 
             // var gradient = canvasContext.createLinearGradient(0, 0, canvas.width, 0);
